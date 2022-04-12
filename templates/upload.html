@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Classification</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <script>
+        function filesize(elem) {
+            document.cookie = 'filesize=${elem.files[0].size}'
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Video Classification</h2>
+        <form action="" method="POST" enctype="multipart/form-data">
+            <label>Select Video</label><br><br>
+            <input type="file" name="file" oninput="filesize(this)">
+            <input type="submit" value="Upload">
+        </form>
+        {% if my_video %}
+            <p>Output: </p> {{my_vid}}
+        {% endif %}
+    </div>
+</body>
+</html>
